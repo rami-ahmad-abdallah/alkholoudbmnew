@@ -20,6 +20,38 @@ body {
 }
 
 header {
+
+  .images {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity $transitionDuration ease-in-out;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(255 255 255 / 35%);
+    }
+  }
+
   nav {
     position: fixed;
     top: 10px;
@@ -36,11 +68,13 @@ header {
     padding: 0px 15px;
     overflow: hidden;
     transition: all $transitionDuration $timing;
+
     &.active {
       width: 750px;
 
       .menu {
         display: flex;
+
         a {
           transform: rotate(0deg) translateY(0px);
         }
@@ -71,6 +105,7 @@ header {
       z-index: 0;
       transform: translateX(-50%);
       gap: 15px;
+
       a {
         text-decoration: none;
         color: black;

@@ -1,8 +1,8 @@
 let nav = document.querySelector("nav");
 let burger = document.querySelector(".burger");
 let menuLinks = document.querySelectorAll(".menu-link");
-
-console.log(menuLinks);
+let headerSlides = document.querySelectorAll(".header-slide");
+let currentSlide = 0;
 
 nav.addEventListener("click", (e) => {
   if (
@@ -26,3 +26,17 @@ function addTransitionDelay(arr, delay = 0) {
     item.style.transitionDelay = `${delay}s`;
   });
 }
+
+
+function changeSlide() {
+
+  if (currentSlide === headerSlides.length - 1) {
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+  headerSlides[currentSlide - 1].classList.remove("active");
+  headerSlides[currentSlide].classList.add("active");
+}
+
+setInterval(changeSlide, 3000);
