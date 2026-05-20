@@ -1,0 +1,184 @@
+$carousal-control-color: rgba(255, 255, 255, 0.05);
+$carousal-control-hover: rgba(255, 255, 255, 0.25);
+$carousal-border-radius: $base-radius;
+.carousal {
+  width: 100%;
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: $carousal-border-radius;
+  margin-bottom: $base-margin;
+
+  .carousal-items {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: center;
+    gap: 25px;
+    height: inherit;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    pointer-events: none;
+
+    .carousal-item {
+      scroll-snap-align: center;
+      height: inherit;
+      width: 100%;
+      overflow: hidden;
+      flex: 0 0 auto;
+      position: relative;
+
+      .carousal-item-body {
+        width: inherit;
+        height: inherit;
+        position: relative;
+
+        img,
+        video {
+          width: inherit;
+          height: inherit;
+          position: absolute;
+
+          &:nth-of-type(1) {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            filter: blur(20px);
+            transform: scale(1.1);
+          }
+          &:nth-of-type(2) {
+            width: clamp(345px, 90%, 85%);
+            height: 90%;
+            object-fit: cover;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: $carousal-border-radius;
+            box-shadow: 0 0 10px -5px black;
+          }
+        }
+      }
+
+      .carousal-item-text {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translate(-10%, 0px);
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: $carousal-border-radius;
+        color: white;
+        backdrop-filter: blur(5px);
+        font-size: clamp(16px, 20px, 22px);
+        transition: transform 0.75s ease;
+      }
+
+      &.active {
+        .carousal-item-text {
+          transform: translate(-50%, 0px);
+        }
+      }
+    }
+  }
+
+  .carousal-control {
+    position: absolute;
+    bottom: 10px;
+    z-index: 5;
+    padding: 10px;
+    border: 0;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    text-shadow: 0px 0px 7px black;
+    background: $carousal-control-color;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    pointer-events: all;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #6f6f6fbd;
+
+    &:hover {
+      background: $carousal-control-hover;
+    }
+
+    &.previous-btn {
+      left: 10px;
+    }
+
+    &.next-btn {
+      right: 10px;
+    }
+
+    &.hide-control {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .carousal-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+    display: flex;
+    gap: 5px;
+
+    .indicator {
+      background-color: #ffffff73;
+      box-shadow: 0 0 0 1px #00000070;
+      backdrop-filter: blur(5px);
+
+      &.active {
+        background-color: white;
+      }
+    }
+  }
+
+  .auto-carousal-indicator {
+    height: 25px;
+    width: 250px;
+    background: #ffffff3b;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px -1px black;
+    backdrop-filter: blur(5px);
+
+    .item-progress {
+      background: rgb(255, 255, 255);
+      height: 100%;
+      width: 10%;
+    }
+  }
+
+  // IF LETTERBOXING IS OFF
+  &[data-letterboxing="off"] {
+    .carousal-items {
+      .carousal-item-body {
+        img,
+        video {
+          width: inherit;
+          height: inherit;
+          position: absolute;
+
+          &:nth-of-type(1) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(0px);
+            top: 0px;
+            left: 0px;
+          }
+        }
+      }
+    }
+  }
+}

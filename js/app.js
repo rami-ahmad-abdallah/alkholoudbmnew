@@ -20,6 +20,7 @@ nav.addEventListener("click", (e) => {
   }
 });
 
+// ADDS A TRANSITION DELAY TO A GIVEN LIST OF HTML NODES
 function addTransitionDelay(arr, delay = 0) {
   arr.forEach((item) => {
     delay += 0.05;
@@ -27,15 +28,22 @@ function addTransitionDelay(arr, delay = 0) {
   });
 }
 
+// ADDS A TRANSITION DELAY OF 0 TO A GIVEN LIST OF HTML NODES
+function removeTransitionDelay(arr) {
+  arr.forEach((item) => {
+    item.style.transitionDelay = "0s";
+  });
+}
 
 function changeSlide() {
-
   if (currentSlide === headerSlides.length - 1) {
     currentSlide = 0;
+    headerSlides[headerSlides.length - 1].classList.remove("active");
   } else {
     currentSlide++;
+    headerSlides[currentSlide - 1].classList.remove("active");
   }
-  headerSlides[currentSlide - 1].classList.remove("active");
+
   headerSlides[currentSlide].classList.add("active");
 }
 
