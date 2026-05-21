@@ -872,3 +872,39 @@ section {
 #about .about-card .card-text {
   width: 400px;
 }
+
+#services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#services h1 {
+  font-size: 90px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.0705882353);
+  text-transform: uppercase;
+}
+#services .services-cards {
+  position: absolute;
+  top: 0%;
+}
+#services .services-cards .service-card {
+  width: 320px;
+  background: red;
+  margin: 10px 0px;
+  padding: 10px;
+}
+#services .services-cards .service-card img {
+  width: 100%;
+}
+#services .services-cards .service-card .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#services .services-cards .service-card .card-body svg {
+  fill: white;
+  text-transform: uppercase;
+}
