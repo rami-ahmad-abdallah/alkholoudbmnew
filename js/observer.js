@@ -7,9 +7,9 @@ const observerCallback = (entries, observer) => {
     if (entry.isIntersecting) {
       // Add a CSS class to trigger your styles
       entry.target.classList.add("observed");
-      if (entry.target.classList.contains("split-text")) {
-        entry.target.classList.add("split-text-when-observed");
-      }
+      // if (entry.target.classList.contains("split-text")) {
+      //   entry.target.classList.add("split-text-when-observed");
+      // }
 
       // Stop watching this element if you only want it to animate once
       observer.unobserve(entry.target);

@@ -46,12 +46,62 @@
 
     <div class="container">
         <section id="about">
-            <h2 class="observe split-text">
-                From intricate interior decorations and gypsum artistry to essential structural repairs and
-                plumbing, Alkholoud Building Maintenance provides a seamless, one-stop solution
-                for all your property needs.
 
-            </h2>
+            <div class="about-card card-4">
+                <div class="card-image">
+                    <img src="https://placehold.co/200" alt="Values image">
+                </div>
+                <div class="card-text">
+                    <ul>
+                        <li>Integrity: Honest pricing and transparent communication.</li>
+                        <li>Reliability: Arriving on time and completing projects as promised.</li>
+                        <li>Quality: Using high-grade materials and expert technicians for every task.</li>
+                        <li>Safety: A non-negotiable commitment to protecting people and property.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="about-card card-3">
+                <div class="card-image">
+                    <img src="https://placehold.co/200" alt="Vision image">
+                </div>
+                <div class="card-text">
+                    To be the leading choice for complete property care, recognized for our commitment to excellence,
+                    innovation, and client satisfaction.
+                </div>
+            </div>
+
+            <div class="about-card card-2">
+                <div class="card-image">
+                    <img src="https://placehold.co/200" alt="Mission image">
+                </div>
+                <div class="card-text">
+                    To provide reliable, high-quality maintenance solutions that enhance the safety and value of every
+                    property we touch, driven by a decade of professional expertise.
+                </div>
+            </div>
+
+            <div class="about-card card-1">
+                <div class="card-image">
+                    <img src="https://placehold.co/200" alt="About us image">
+                </div>
+                <div class="card-text">
+                    From intricate interior decorations and gypsum artistry to essential structural repairs and
+                    plumbing, Alkholoud Building Maintenance provides a seamless, one-stop solution
+                    for all your property needs.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus voluptate distinctio vero quas
+                quam dolore eos, placeat aperiam delectus mollitia.</p>
+        </section>
+
+        <section>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aperiam commodi temporibus sed a
+                fugiat consectetur maiores accusantium labore accusamus adipisci eum, nulla obcaecati. Reprehenderit
+                ipsum placeat perferendis saepe ipsam!</p>
         </section>
     </div>
 
@@ -71,6 +121,28 @@
     </script>
 
     <script src="./js/splitText.js"></script>
+
+    <script>
+        console.log(window.innerHeight);
+        let t1 = gsap.timeline({
+            defaults: { duration: 1, ease: "power2.inOut" },
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top top",
+                end: "bottom",
+                pin: true,
+                scrub: true,
+                toggleActions: "play none none reverse",
+            }
+        });
+        t1.to(".card-1", { opacity: 0, y: 100, rotate: -10, scale: 0.8 })
+            .to(".card-2", { opacity: 1, y: "-50%", rotate: 0, scale: 1 }, "<")
+            .to(".card-2", { opacity: 0, y: 100, rotate: -10, scale: 0.8 })
+            .to(".card-3", { opacity: 1, y: "-50%", rotate: 0, scale: 1 }, "<")
+            .to(".card-3", { opacity: 0, y: 100, rotate: -10, scale: 0.8 })
+            .to(".card-4", { opacity: 1, y: "-50%", rotate: 0, scale: 1 }, "<");
+
+    </script>
 </body>
 
 </html>
