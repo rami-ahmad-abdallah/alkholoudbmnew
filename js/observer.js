@@ -7,15 +7,46 @@ const observerCallback = (entries, observer) => {
     if (entry.isIntersecting) {
       // Add a CSS class to trigger your styles
       entry.target.classList.add("observed");
-      // if (entry.target.classList.contains("split-text")) {
-      //   entry.target.classList.add("split-text-when-observed");
-      // }
+
+      let elements = entry.target.querySelectorAll(".split-text");
+      elements.forEach((el) => {
+        playSplitText(el);
+      });
+
+      let counters = entry.target.querySelectorAll(".counter");
+
+      counters.forEach((counter) => {
+        animateCounter(counter, 5000);
+      });
 
       // Stop watching this element if you only want it to animate once
       observer.unobserve(entry.target);
     }
   });
 };
+
+function animateCounter(element, duration) {
+  const target = parseInt(element.dataset.max);
+  const startTime = performance.now();
+
+  function updateNumber(currentTime) {
+    // Calculate how much time has passed as a percentage (0 to 1)
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+
+    // Calculate the current number based on progress
+    const currentNumber = Math.floor(progress * target);
+    element.textContent = currentNumber;
+
+    // Continue the animation loop until progress reaches 100%
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber);
+    }
+  }
+
+  // Start the animation frame loop
+  requestAnimationFrame(updateNumber);
+}
 
 // 3. Configure the observer settings
 const observerOptions = {

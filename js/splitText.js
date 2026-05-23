@@ -1,16 +1,10 @@
-document.addEventListener("DOMContentLoaded", (e) => {
-  const textElements = document.querySelectorAll(".split-text");
-
-  textElements.forEach((element) => {});
-});
-
 function playSplitText(element) {
   const split = new SplitText(element, { type: "words" });
   gsap.from(split.words, {
     opacity: 0,
     y: -50,
     duration: 0.8,
-    rotation: "random(-40, 40)",
+    rotation: "random(-80, 80)",
     stagger: 0.05,
     ease: "power2.out",
     // scrollTrigger: {

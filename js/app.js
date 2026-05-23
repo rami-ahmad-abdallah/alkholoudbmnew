@@ -1,5 +1,6 @@
 let nav = document.querySelector("nav");
 let burger = document.querySelector(".burger");
+let menuWrapper = document.querySelector(".menu-wrapper");
 let menu = document.querySelector(".menu");
 let headerSlides = document.querySelectorAll(".header-slide");
 let currentSlide = 0;
@@ -10,11 +11,10 @@ nav.addEventListener("click", (e) => {
     e.target.classList.contains("burger")
   ) {
     burger.classList.toggle("active");
+    menuWrapper.classList.toggle("active");
     menu.classList.toggle("active");
   }
 });
-
-
 
 function changeSlide() {
   if (currentSlide === headerSlides.length - 1) {
