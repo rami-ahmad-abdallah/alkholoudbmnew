@@ -29,6 +29,13 @@
                 <img src="./images/webp/logo-webp.webp" alt="alkholoudbm-logo">
             </div>
 
+            <div class="burger">
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="menu-wrapper">
             <div class="menu">
                 <a href="/" class="menu-link">Home</a>
                 <a href="/" class="menu-link">About</a>
@@ -36,12 +43,7 @@
                 <a href="/" class="menu-link">Contact</a>
                 <a href="/" class="menu-link">العربية</a>
             </div>
-
-            <div class="burger">
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+        </div>
     </header>
 
     <div class="container">
@@ -254,7 +256,7 @@
     <script>
 
         let aboutTimeline = gsap.timeline({
-            defaults: { duration: 1, ease: "power2.inOut" },
+            defaults: { duration: 1, ease: "power2.inOut", },
             scrollTrigger: {
                 trigger: "#about",
                 start: "top top",
@@ -265,11 +267,11 @@
                 toggleActions: "play none none reverse",
             }
         });
-        aboutTimeline.to(".card-1", { opacity: 0, y: 100, rotate: -10, scale: 0.8, })
+        aboutTimeline.to(".card-1", { opacity: 0, y: "50%", rotate: -10, scale: 0.8, })
             .to(".card-2", { opacity: 1, y: "-50%", rotate: 0, scale: 1, }, "<")
-            .to(".card-2", { opacity: 0, y: 100, rotate: -10, scale: 0.8 })
+            .to(".card-2", { opacity: 0, y: "50%", rotate: -10, scale: 0.8 })
             .to(".card-3", { opacity: 1, y: "-50%", rotate: 0, scale: 1 }, "<")
-            .to(".card-3", { opacity: 0, y: 100, rotate: -10, scale: 0.8 })
+            .to(".card-3", { opacity: 0, y: "50%", rotate: -10, scale: 0.8 })
             .to(".card-4", { opacity: 1, y: "-50%", rotate: 0, scale: 1 }, "<");
 
 
@@ -279,7 +281,7 @@
         document.querySelector("#services").style.marginBottom = `${allCardsHeight}px`
 
         let servicesTimeline = gsap.timeline({
-            defaults: { duration: 1, ease: "power2.inOut" },
+            defaults: { duration: 1, ease: "power2.inOut", delay: 0.5 },
             scrollTrigger: {
                 trigger: "#services",
                 start: "top top",
@@ -297,15 +299,15 @@
 
         servicesTimeline.to(serviceCards[0], { opacity: 1, y: "-50%" })
             .to(serviceCards[0], { opacity: 0, y: "-100%" })
-            .to(serviceCards[1], { opacity: 1, y: "-50%" })
+            .to(serviceCards[1], { opacity: 1, y: "-50%" }, "<")
             .to(serviceCards[1], { opacity: 0, y: "-100%" })
-            .to(serviceCards[2], { opacity: 1, y: "-50%" })
+            .to(serviceCards[2], { opacity: 1, y: "-50%" }, "<")
             .to(serviceCards[2], { opacity: 0, y: "-100%" })
-            .to(serviceCards[3], { opacity: 1, y: "-50%" })
+            .to(serviceCards[3], { opacity: 1, y: "-50%" }, "<")
             .to(serviceCards[3], { opacity: 0, y: "-100%" })
-            .to(serviceCards[4], { opacity: 1, y: "-50%" })
+            .to(serviceCards[4], { opacity: 1, y: "-50%" }, "<")
             .to(serviceCards[4], { opacity: 0, y: "-100%" })
-            .to(serviceCards[5], { opacity: 1, y: "-50%" })
+            .to(serviceCards[5], { opacity: 1, y: "-50%" }, "<")
             .to(serviceCards[5], { opacity: 0, y: "-100%" }); 
     </script>
 </body>

@@ -19,9 +19,11 @@ $colors: (
 );
 
 // APP SPECIFIC VARS
-$navHeight: 50px;
+$navHeight: 60px;
+$navWidth: 340px;
 $transitionDuration: 0.7s;
 $timing: cubic-bezier(0.5, -0.5, 0.5, 1.5);
+$blur: 25px;
 
 $base-padding: 10px;
 $base-margin: 7px;

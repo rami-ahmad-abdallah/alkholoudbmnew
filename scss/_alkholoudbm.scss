@@ -53,87 +53,39 @@ header {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur($blur);
     height: $navHeight;
-    width: 350px;
+    width: $navWidth;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 100px;
-    padding: 0px 15px;
-    overflow: hidden;
-    transition: all $transitionDuration $timing;
+    padding: 5px 0px 5px 20px;
 
-    &.active {
-      width: 750px;
-
-      .menu {
-        display: flex;
-
-        a {
-          transform: rotate(0deg) translateY(0px);
-        }
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 3px;
+      background: transparent;
+      border: 1px solid white;
+      border-radius: inherit;
     }
 
     .logo {
       width: $navHeight;
-      height: $navHeight;
+      height: 100%;
 
       img {
         width: -webkit-fill-available;
-        height: 50px;
+        height: 100%;
         object-fit: contain;
         padding: 3px;
       }
     }
 
-    .menu {
-      position: absolute;
-      background: transparent;
-      height: 50px;
-      width: 350px;
-      left: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 0;
-      transform: translateX(-50%);
-      gap: 15px;
 
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 16px;
-        padding: 5px 0px;
-        position: relative;
-        transform: rotate(5deg) translateY(100px);
-        transition: all $transitionDuration $timing;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: black;
-          transform-origin: right;
-          transform: scaleX(0);
-          transition: transform $transitionDuration ease-in-out;
-        }
-
-        &:hover {
-          transform: scale(1.05) translateY(-3px);
-
-          &::after {
-            transform-origin: left;
-            transform: scaleX(1);
-          }
-        }
-      }
-    }
 
     .burger {
       width: $navHeight;
@@ -141,11 +93,15 @@ header {
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: end;
+      align-items: center;
       flex-direction: column;
       gap: 5px;
+      border-radius: 50%;
       cursor: pointer;
+      transform: rotate(0deg);
       transition: all $transitionDuration $timing;
+
+
 
       span {
         width: 30px;
@@ -164,6 +120,7 @@ header {
 
       &.active {
         gap: 0px;
+        transform: rotate(-360deg);
 
         span {
           width: 20px;
@@ -178,6 +135,100 @@ header {
       }
     }
   }
+
+  .menu-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #0000005e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    backdrop-filter: blur($blur);
+    padding: 80px 15px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    .menu {
+      background: rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      border-radius: 25px;
+      width: $navWidth;
+      height: auto;
+      flex-direction: column;
+      backdrop-filter: blur(25px);
+      padding: 20px 0px;
+      transform-origin: top right;
+      transform: scale(0);
+      transition: all 0.7s cubic-bezier(0.52, -0.62, 0.1, 1);
+
+      &.active {
+        transition: all 0.7s cubic-bezier(0.5, -0.13, 0.5, 1.5);
+
+        transform: scale(1);
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        transition: all $transitionDuration $timing;
+        font-size: 18px;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: rgba(255, 255, 255, 0.5);
+          backdrop-filter: blur(25px);
+          transition: transform $transitionDuration ease-in-out;
+          transform-origin: right;
+          transform: scaleX(0);
+        }
+
+        &::after {
+          bottom: 0;
+        }
+
+        &::before {
+          top: 0;
+          transition-delay: 0.2s;
+        }
+
+        &:hover {
+
+          &::after,
+          &::before {
+            transform-origin: left;
+            transform: scaleX(1);
+          }
+
+          &::before {
+            transition-delay: 0s;
+          }
+
+          &::after {
+            transition-delay: 0.2s;
+          }
+        }
+      }
+    }
+  }
+
+
 }
 
 section {

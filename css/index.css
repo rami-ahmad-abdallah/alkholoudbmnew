@@ -705,89 +705,48 @@ header nav {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(25px);
-  height: 50px;
-  width: 350px;
+  height: 60px;
+  width: 340px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 100px;
-  padding: 0px 15px;
-  overflow: hidden;
-  transition: all 0.7s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  padding: 5px 0px 5px 20px;
 }
-header nav.active {
-  width: 750px;
-}
-header nav.active .menu {
-  display: flex;
-}
-header nav.active .menu a {
-  transform: rotate(0deg) translateY(0px);
+header nav::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 3px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: inherit;
 }
 header nav .logo {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 100%;
 }
 header nav .logo img {
   width: -webkit-fill-available;
-  height: 50px;
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 3px;
 }
-header nav .menu {
-  position: absolute;
-  background: transparent;
-  height: 50px;
-  width: 350px;
-  left: 50%;
+header nav .burger {
+  width: 60px;
+  height: 60px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
-  transform: translateX(-50%);
-  gap: 15px;
-}
-header nav .menu a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  padding: 5px 0px;
-  position: relative;
-  transform: rotate(5deg) translateY(100px);
-  transition: all 0.7s cubic-bezier(0.5, -0.5, 0.5, 1.5);
-}
-header nav .menu a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: black;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.7s ease-in-out;
-}
-header nav .menu a:hover {
-  transform: scale(1.05) translateY(-3px);
-}
-header nav .menu a:hover::after {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-header nav .burger {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: end;
   flex-direction: column;
   gap: 5px;
+  border-radius: 50%;
   cursor: pointer;
+  transform: rotate(0deg);
   transition: all 0.7s cubic-bezier(0.5, -0.5, 0.5, 1.5);
 }
 header nav .burger span {
@@ -805,6 +764,7 @@ header nav .burger span:nth-child(2) {
 }
 header nav .burger.active {
   gap: 0px;
+  transform: rotate(-360deg);
 }
 header nav .burger.active span {
   width: 20px;
@@ -814,6 +774,82 @@ header nav .burger.active span {
 }
 header nav .burger.active span:nth-child(2) {
   transform: rotate(-45deg) translateY(0px);
+}
+header .menu-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.368627451);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  backdrop-filter: blur(25px);
+  padding: 80px 15px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+header .menu-wrapper .menu {
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 25px;
+  width: 340px;
+  height: auto;
+  flex-direction: column;
+  backdrop-filter: blur(25px);
+  padding: 20px 0px;
+  transform-origin: top right;
+  transform: scale(0);
+  transition: all 0.7s cubic-bezier(0.52, -0.62, 0.1, 1);
+}
+header .menu-wrapper .menu.active {
+  transition: all 0.7s cubic-bezier(0.5, -0.13, 0.5, 1.5);
+  transform: scale(1);
+}
+header .menu-wrapper .menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.7s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+}
+header .menu-wrapper .menu a::after, header .menu-wrapper .menu a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(25px);
+  transition: transform 0.7s ease-in-out;
+  transform-origin: right;
+  transform: scaleX(0);
+}
+header .menu-wrapper .menu a::after {
+  bottom: 0;
+}
+header .menu-wrapper .menu a::before {
+  top: 0;
+  transition-delay: 0.2s;
+}
+header .menu-wrapper .menu a:hover::after, header .menu-wrapper .menu a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+header .menu-wrapper .menu a:hover::before {
+  transition-delay: 0s;
+}
+header .menu-wrapper .menu a:hover::after {
+  transition-delay: 0.2s;
 }
 
 section {
@@ -833,14 +869,14 @@ section {
   transform-origin: center;
   transform: translate(-50%, -50%) rotate(0deg);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 400px;
   flex-flow: row wrap;
-  gap: 80px;
   background-color: rgb(71, 71, 71);
   color: white;
+  gap: 15px;
 }
 #about .about-card .card-image {
   width: 220px;
@@ -850,27 +886,32 @@ section {
 #about .about-card .card-image img {
   width: 100%;
 }
-#about .about-card:nth-child(1) {
-  z-index: 1;
-  transform: translate(-50%, -80%) rotate(3deg) scale(0.7);
+#about .about-card.card-1 {
+  z-index: 4;
+  /* Keep on top */
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
   border: 5px solid red;
 }
-#about .about-card:nth-child(2) {
-  z-index: 2;
-  transform: translate(-50%, -70%) rotate(2deg) scale(0.8);
+#about .about-card.card-2 {
+  z-index: 3;
+  transform: translate(-50%, -60%) rotate(3deg) scale(0.9);
   border: 5px solid green;
 }
-#about .about-card:nth-child(3) {
-  z-index: 3;
-  transform: translate(-50%, -60%) rotate(1deg) scale(0.9);
+#about .about-card.card-3 {
+  z-index: 2;
+  transform: translate(-50%, -70%) rotate(6deg) scale(0.8);
   border: 5px solid blue;
 }
-#about .about-card:nth-child(4) {
-  z-index: 4;
+#about .about-card.card-4 {
+  z-index: 1;
+  /* Keep at the bottom */
+  transform: translate(-50%, -80%) rotate(9deg) scale(0.7);
   border: 5px solid yellow;
 }
 #about .about-card .card-text {
-  width: 400px;
+  width: 450px;
+  font-size: 18px;
+  letter-spacing: 3px;
 }
 
 #services {

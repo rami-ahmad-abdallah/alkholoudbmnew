@@ -13,14 +13,14 @@
     transform-origin: center;
     transform: translate(-50%, -50%) rotate(0deg);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 400px;
     flex-flow: row wrap;
-    gap: 80px;
     background-color: rgb(71 71 71);
     color: white;
+    gap: 15px;
 
     .card-image {
       width: 220px;
@@ -32,43 +32,69 @@
       }
     }
 
-    &:nth-child(1) {
-      z-index: 1;
-
-      transform: translate(-50%, -80%) rotate(#{$degree * 3}deg) scale(0.7);
+    &.card-1 {
+      z-index: 4;
+      /* Keep on top */
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
       border: 5px solid red;
     }
 
-    &:nth-child(2) {
-      z-index: 2;
-
-      transform: translate(-50%, -70%) rotate(#{$degree * 2}deg) scale(0.8);
-      border: 5px solid green;
-
-      .card-image {
-      }
-    }
-
-    &:nth-child(3) {
+    &.card-2 {
       z-index: 3;
+      transform: translate(-50%, -60%) rotate(3deg) scale(0.9);
+      border: 5px solid green;
+    }
 
-      transform: translate(-50%, -60%) rotate(#{$degree}deg) scale(0.9);
+    &.card-3 {
+      z-index: 2;
+      transform: translate(-50%, -70%) rotate(6deg) scale(0.8);
       border: 5px solid blue;
-
-      .card-image {
-      }
     }
 
-    &:nth-child(4) {
-      z-index: 4;
+    &.card-4 {
+      z-index: 1;
+      /* Keep at the bottom */
+      transform: translate(-50%, -80%) rotate(9deg) scale(0.7);
       border: 5px solid yellow;
-
-      .card-image {
-      }
     }
+
+    // &:nth-child(1) {
+    //   z-index: 1;
+
+    //   transform: translate(-50%, -80%) rotate(#{$degree * 3}deg) scale(0.7);
+    //   border: 5px solid red;
+    // }
+
+    // &:nth-child(2) {
+    //   z-index: 2;
+
+    //   transform: translate(-50%, -70%) rotate(#{$degree * 2}deg) scale(0.8);
+    //   border: 5px solid green;
+
+    //   .card-image {}
+    // }
+
+    // &:nth-child(3) {
+    //   z-index: 3;
+
+    //   transform: translate(-50%, -60%) rotate(#{$degree}deg) scale(0.9);
+    //   border: 5px solid blue;
+
+    //   .card-image {}
+    // }
+
+    // &:nth-child(4) {
+    //   z-index: 4;
+    //   transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    //   border: 5px solid yellow;
+
+    //   .card-image {}
+    // }
 
     .card-text {
-      width: 400px;
+      width: 450px;
+      font-size: 18px;
+      letter-spacing: 3px;
     }
   }
 }
