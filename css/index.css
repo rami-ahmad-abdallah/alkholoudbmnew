@@ -874,6 +874,8 @@ section {
 }
 
 #services {
+  height: 100vh;
+  border: 5px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -885,26 +887,35 @@ section {
   color: rgba(255, 255, 255, 0.0705882353);
   text-transform: uppercase;
 }
-#services .services-cards {
-  position: absolute;
-  top: 0%;
-}
-#services .services-cards .service-card {
+#services .service-card {
   width: 320px;
   background: red;
-  margin: 10px 0px;
   padding: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
 }
-#services .services-cards .service-card img {
+#services .service-card:nth-child(odd) {
+  transform: translate(-100%, -15%);
+}
+#services .service-card {
+  /* Card 2: Right side, starts halfway down Card 1 (track 2 to 4) */
+}
+#services .service-card:nth-child(even) {
+  transform: translate(0%, -15%);
+}
+#services .service-card img {
   width: 100%;
 }
-#services .services-cards .service-card .card-body {
+#services .service-card .card-body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-#services .services-cards .service-card .card-body svg {
+#services .service-card .card-body svg {
   fill: white;
   text-transform: uppercase;
 }

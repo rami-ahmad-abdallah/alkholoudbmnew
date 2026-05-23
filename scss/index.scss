@@ -74,6 +74,8 @@
 }
 
 #services {
+  height: 100vh;
+  border: 5px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,30 +88,38 @@
     text-transform: uppercase;
   }
 
-  .services-cards {
-    position: absolute;
-    top: 0%;
+  .service-card {
+    width: 320px;
+    background: red;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
 
-    .service-card {
-      width: 320px;
-      background: red;
-      margin: 10px 0px;
-      padding: 10px;
+    &:nth-child(odd) {
+      transform: translate(-100%, -15%);
+    }
 
-      img {
-        width: 100%;
-      }
+    /* Card 2: Right side, starts halfway down Card 1 (track 2 to 4) */
+    &:nth-child(even) {
+      transform: translate(0%, -15%);
+    }
 
-      .card-body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    img {
+      width: 100%;
+    }
 
-        svg {
-          fill: white;
-          text-transform: uppercase;
-        }
+    .card-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      svg {
+        fill: white;
+        text-transform: uppercase;
       }
     }
   }
