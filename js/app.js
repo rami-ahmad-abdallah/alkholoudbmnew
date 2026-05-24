@@ -10,11 +10,26 @@ nav.addEventListener("click", (e) => {
     (e.target.tagName === "SPAN" && e.target.closest(".burger")) ||
     e.target.classList.contains("burger")
   ) {
-    burger.classList.toggle("active");
-    menuWrapper.classList.toggle("active");
-    menu.classList.toggle("active");
+    animateMenu();
   }
 });
+
+menu.addEventListener("click", (e) => {
+  if (e.target.tagName === "A" && e.target.classList.contains("menu-link")) {
+    if (e.target.getAttribute("href").includes("#")) {
+      e.preventDefault();
+      let sectionId = e.target.getAttribute("href");
+      document.querySelector(sectionId).scrollIntoView();
+      animateMenu();
+    }
+  }
+});
+
+function animateMenu() {
+  burger.classList.toggle("active");
+  menuWrapper.classList.toggle("active");
+  menu.classList.toggle("active");
+}
 
 function changeSlide() {
   if (currentSlide === headerSlides.length - 1) {
@@ -28,7 +43,7 @@ function changeSlide() {
   headerSlides[currentSlide].classList.add("active");
 }
 
-setInterval(changeSlide, 3000);
+setInterval(changeSlide, 4000);
 
 function fitTextPerfectly() {
   const svgs = document.querySelectorAll("svg.auto-fit-text");

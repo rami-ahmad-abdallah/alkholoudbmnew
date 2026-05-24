@@ -202,13 +202,14 @@
 }
 
 #contact {
-  height: 75vh;
   max-width: 100vw;
   background: #292929;
   border: 0;
   border-top: 1px solid white;
   margin: 0;
-
+  position: relative;
+  height: auto;
+  padding-bottom: 100px;
 
   .logo {
     width: 200px;
@@ -224,9 +225,63 @@
     flex-flow: row wrap;
 
     div {
-      width: clamp(340px, 50%, 700px);
-      height: 340px;
-      background: red;
+      max-width: 500px;
+      min-width: 320px;
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    li {
+      margin: 10px 0px;
+    }
+  }
+
+  .socials {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .social-links {
+      width: auto;
+      margin: 15px auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        width: 30px;
+        display: flex;
+        height: 30px;
+
+        svg {
+          fill: #747474;
+        }
+
+        &:hover {
+          svg {
+            fill: #ffffff;
+          }
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .copy {
+      color: #747474;
+      text-align: center;
     }
   }
 }

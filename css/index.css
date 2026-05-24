@@ -663,6 +663,7 @@
   outline: none;
   font-family: sans-serif;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1042,12 +1043,14 @@ nav .burger.active span:nth-child(2) {
 }
 
 #contact {
-  height: 75vh;
   max-width: 100vw;
   background: #292929;
   border: 0;
   border-top: 1px solid white;
   margin: 0;
+  position: relative;
+  height: auto;
+  padding-bottom: 100px;
 }
 #contact .logo {
   width: 200px;
@@ -1061,9 +1064,52 @@ nav .burger.active span:nth-child(2) {
   flex-flow: row wrap;
 }
 #contact .flex div {
-  width: clamp(340px, 50%, 700px);
-  height: 340px;
-  background: red;
+  max-width: 500px;
+  min-width: 320px;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1;
+}
+#contact .flex iframe {
+  width: 100%;
+  height: 100%;
+}
+#contact .flex li {
+  margin: 10px 0px;
+}
+#contact .socials {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#contact .socials .social-links {
+  width: auto;
+  margin: 15px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#contact .socials .social-links a {
+  width: 30px;
+  display: flex;
+  height: 30px;
+}
+#contact .socials .social-links a svg {
+  fill: #747474;
+}
+#contact .socials .social-links a:hover svg {
+  fill: #ffffff;
+}
+#contact .socials .social-links a img {
+  width: 100%;
+}
+#contact .socials .copy {
+  color: #747474;
+  text-align: center;
 }
 
 @keyframes shadow {
