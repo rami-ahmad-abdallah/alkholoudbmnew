@@ -180,6 +180,7 @@
       animation: shadow 10s ease-in-out 0s infinite;
     }
   }
+
   .counter-cards {
     display: flex;
     justify-content: center;
@@ -196,6 +197,36 @@
       align-items: center;
       flex-direction: column;
       gap: 15px;
+    }
+  }
+}
+
+#contact {
+  height: 75vh;
+  max-width: 100vw;
+  background: #292929;
+  border: 0;
+  border-top: 1px solid white;
+  margin: 0;
+
+
+  .logo {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .flex {
+    flex-flow: row wrap;
+
+    div {
+      width: clamp(340px, 50%, 700px);
+      height: 340px;
+      background: red;
     }
   }
 }

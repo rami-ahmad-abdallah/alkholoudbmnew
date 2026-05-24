@@ -100,13 +100,16 @@ nav {
   align-items: start;
   transform-origin: bottom left;
   transform: scale(0);
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, border-radius 0.7s ease-in-out;
+
 
   &.active {
     transform: scale(1);
     transform-origin: top right;
   }
 }
+
+
 
 .menu {
   z-index: 100;
@@ -157,7 +160,6 @@ nav {
 
     &::after {
       background: $primary;
-      animation: none;
     }
 
     &::before {
@@ -166,6 +168,7 @@ nav {
 
     &:hover {
       color: $primary;
+
       &::after,
       &::before {
         transform-origin: left;
@@ -178,7 +181,6 @@ nav {
 
       &::after {
         transition-delay: 0.2s;
-        animation: hover 3s ease-in-out alternate infinite;
         animation-delay: calc($transitionDuration + 1s);
       }
     }
@@ -187,16 +189,5 @@ nav {
   &.active {
     transform-origin: top right;
     transform: translateX(-50%) scale(1);
-  }
-}
-
-@keyframes hover {
-  0%,
-  100% {
-    transform: scaleX(1);
-  }
-
-  50% {
-    transform: scaleX(0.65);
   }
 }

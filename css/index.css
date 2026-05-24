@@ -814,7 +814,7 @@ nav .burger.active span:nth-child(2) {
   align-items: start;
   transform-origin: bottom left;
   transform: scale(0);
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out, border-radius 0.7s ease-in-out;
 }
 .menu-wrapper.active {
   transform: scale(1);
@@ -868,7 +868,6 @@ nav .burger.active span:nth-child(2) {
 }
 .menu a::after {
   background: rgb(26, 98, 144);
-  animation: none;
 }
 .menu a::before {
   transition-delay: 0.2s;
@@ -885,7 +884,6 @@ nav .burger.active span:nth-child(2) {
 }
 .menu a:hover::after {
   transition-delay: 0.2s;
-  animation: hover 3s ease-in-out alternate infinite;
   animation-delay: 1.7s;
 }
 .menu.active {
@@ -893,14 +891,6 @@ nav .burger.active span:nth-child(2) {
   transform: translateX(-50%) scale(1);
 }
 
-@keyframes hover {
-  0%, 100% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(0.65);
-  }
-}
 #about {
   position: relative;
 }
@@ -1049,6 +1039,31 @@ nav .burger.active span:nth-child(2) {
   align-items: center;
   flex-direction: column;
   gap: 15px;
+}
+
+#contact {
+  height: 75vh;
+  max-width: 100vw;
+  background: #292929;
+  border: 0;
+  border-top: 1px solid white;
+  margin: 0;
+}
+#contact .logo {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+}
+#contact .logo img {
+  width: 100%;
+}
+#contact .flex {
+  flex-flow: row wrap;
+}
+#contact .flex div {
+  width: clamp(340px, 50%, 700px);
+  height: 340px;
+  background: red;
 }
 
 @keyframes shadow {
