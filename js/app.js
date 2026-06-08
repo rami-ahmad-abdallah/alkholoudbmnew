@@ -45,19 +45,19 @@ function changeSlide() {
 
 setInterval(changeSlide, 4000);
 
-function fitTextPerfectly() {
-  const svgs = document.querySelectorAll("svg.auto-fit-text");
+// function fitTextPerfectly() {
+//   const svgs = document.querySelectorAll("svg.auto-fit-text");
 
-  svgs.forEach((svg) => {
-    const textElement = svg.querySelector("text");
+//   svgs.forEach((svg) => {
+//     const textElement = svg.querySelector("text");
 
-    // 1. Grab the exact boundary box of the raw text characters
-    const box = textElement.getBBox();
+//     // 1. Grab the exact boundary box of the raw text characters
+//     const box = textElement.getBBox();
 
-    // 2. Set the viewBox to perfectly frame the text string dimensions
-    svg.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
-  });
-}
+//     // 2. Set the viewBox to perfectly frame the text string dimensions
+//     svg.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
+//   });
+// }
 
-// Execute on initial page load
-window.addEventListener("DOMContentLoaded", fitTextPerfectly);
+// // Execute on initial page load
+// window.addEventListener("DOMContentLoaded", fitTextPerfectly);

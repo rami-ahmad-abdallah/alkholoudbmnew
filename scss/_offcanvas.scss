@@ -100,16 +100,15 @@ nav {
   align-items: start;
   transform-origin: bottom left;
   transform: scale(0);
-  transition: transform 0.7s ease-in-out, border-radius 0.7s ease-in-out;
-
+  transition:
+    transform 0.7s ease-in-out,
+    border-radius 0.7s ease-in-out;
 
   &.active {
     transform: scale(1);
     transform-origin: top right;
   }
 }
-
-
 
 .menu {
   z-index: 100;
