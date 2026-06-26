@@ -5,6 +5,10 @@ let menu = document.querySelector(".menu");
 let headerSlides = document.querySelectorAll(".header-slide");
 let currentSlide = 0;
 
+let serviceCards = document.querySelectorAll(".service-card");
+let cardHeight = serviceCards[0].offsetHeight;
+let allCardsHeight = cardHeight * serviceCards.length;
+
 nav.addEventListener("click", (e) => {
   if (
     (e.target.tagName === "SPAN" && e.target.closest(".burger")) ||
@@ -19,11 +23,35 @@ menu.addEventListener("click", (e) => {
     if (e.target.getAttribute("href").includes("#")) {
       e.preventDefault();
       let sectionId = e.target.getAttribute("href");
-      document.querySelector(sectionId).scrollIntoView();
+      if (sectionId.includes("about") || sectionId.includes("ABOUT")) {
+        scrollToAGivenPoint(sectionId, 3000);
+      } else if (
+        sectionId.includes("service") ||
+        sectionId.includes("SERVICES")
+      ) {
+        scrollToAGivenPoint(sectionId, allCardsHeight);
+      } else {
+        document.querySelector(sectionId).scrollIntoView();
+      }
+
       animateMenu();
     }
   }
 });
+
+function scrollToAGivenPoint(element, points = 0) {
+  const targetSection = document.querySelector(element);
+  const rect = targetSection.getBoundingClientRect();
+  if (rect.top > 0) {
+    document.querySelector(element).scrollIntoView();
+    return;
+  }
+  const targetPosition = window.scrollY + rect.top - points;
+  window.scrollTo({
+    top: targetPosition,
+    behavior: "smooth", // Use 'auto' for instant jump
+  });
+}
 
 function animateMenu() {
   burger.classList.toggle("active");

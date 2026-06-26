@@ -21,6 +21,17 @@
     background-color: rgb(71 71 71);
     color: white;
     gap: 15px;
+    border: 3px solid #1a6194;
+    box-shadow: 0px 0px 10px 5px #1a6194;
+
+    @include mobile() {
+      padding: 12px;
+      height: stretch;
+
+      ul {
+        list-style-type: none;
+      }
+    }
 
     .card-image {
       width: 220px;
@@ -46,72 +57,39 @@
       z-index: 4;
       /* Keep on top */
       transform: translate(-50%, -50%) rotate(0deg) scale(1);
-      border: 5px solid red;
     }
 
     &.card-2 {
       z-index: 3;
       transform: translate(-50%, -60%) rotate(3deg) scale(0.9);
-      border: 5px solid green;
     }
 
     &.card-3 {
       z-index: 2;
       transform: translate(-50%, -70%) rotate(6deg) scale(0.8);
-      border: 5px solid blue;
     }
 
     &.card-4 {
       z-index: 1;
       /* Keep at the bottom */
       transform: translate(-50%, -80%) rotate(9deg) scale(0.7);
-      border: 5px solid yellow;
     }
-
-    // &:nth-child(1) {
-    //   z-index: 1;
-
-    //   transform: translate(-50%, -80%) rotate(#{$degree * 3}deg) scale(0.7);
-    //   border: 5px solid red;
-    // }
-
-    // &:nth-child(2) {
-    //   z-index: 2;
-
-    //   transform: translate(-50%, -70%) rotate(#{$degree * 2}deg) scale(0.8);
-    //   border: 5px solid green;
-
-    //   .card-image {}
-    // }
-
-    // &:nth-child(3) {
-    //   z-index: 3;
-
-    //   transform: translate(-50%, -60%) rotate(#{$degree}deg) scale(0.9);
-    //   border: 5px solid blue;
-
-    //   .card-image {}
-    // }
-
-    // &:nth-child(4) {
-    //   z-index: 4;
-    //   transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    //   border: 5px solid yellow;
-
-    //   .card-image {}
-    // }
 
     .card-text {
       width: 450px;
       font-size: 18px;
       letter-spacing: 3px;
+
+      @include mobile() {
+        width: 100%;
+        text-align: center;
+      }
     }
   }
 }
 
 #services {
   height: 100vh;
-  border: 5px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,7 +108,8 @@
 
   .service-card {
     width: 320px;
-    background: red;
+    background: #3f3f3f;
+    border-radius: 10px;
     padding: 10px;
     position: fixed;
     top: 50%;
@@ -202,13 +181,23 @@
 
     .counter-card {
       width: 340px;
-      background: red;
       height: 340px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       gap: 15px;
+
+      .card-icon {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 50%;
+        }
+      }
     }
   }
 }
