@@ -1138,6 +1138,7 @@ nav .burger.active span:nth-child(2) {
   width: 30px;
   display: flex;
   height: 30px;
+  justify-content: center;
 }
 #contact .socials .social-links a svg {
   fill: #747474;
