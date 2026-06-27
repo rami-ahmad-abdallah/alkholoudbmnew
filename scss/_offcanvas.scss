@@ -6,7 +6,7 @@ nav {
   z-index: 100;
   top: 10px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translate3d(0, 0, 0);
   background: $blurBG;
   backdrop-filter: blur($blur);
   height: $navHeight;
@@ -15,7 +15,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   border-radius: 100px;
-  padding: 5px 0px 5px 20px;
+  padding: 5px 10px;
 
   // &::after {
   //   content: "";
